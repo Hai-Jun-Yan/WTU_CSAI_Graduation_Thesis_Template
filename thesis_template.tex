@@ -1,0 +1,489 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                   声明和基本信息
+%            Statement and basic information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% 2025-11-24 v1.0
+% 作者 1：杜鑫// 机构：武汉纺织大学经济学院// 联系方式：hhkaaen@hotmail.com (欢迎联系！)
+% Author 1: Xin Du// Institution: School of Economics, Wuhan Textile University// Email: hhkaaen@hotmail.com (open to suggestions!)
+% 作者 2：严海军// 机构：武汉纺织大学计算机与人工智能学院// 联系方式：yanhaijun66@gmail.com (欢迎联系！)
+% Author 2: Yan Haijun // Institution: School of Computer and Artificial Intelligence, Wuhan Textile University // Email: yanhaijun666@gmail.com (Welcome to contact!)
+
+
+% 基于原作者的架构，本次进行了优化与功能扩展，主要更新内容如下：
+% 目录样式优化：重构了目录生成逻辑，修正缩进与引导线样式，使其精确匹配学位论文排版规范。
+% 图表双语标题标准化：实现了图表标题的中英文自动双排。具体规范为：图片标题采用五号宋体；表格标题采用五号宋体加粗。
+% 参考文献规范化：引入自定义 .bst 样式文件，严格遵循 GB/T 7714 标准进行文献著录，并针对特定需求进行了细节微调。
+% 智能引用管理：配置 natbib 宏包，实现了正文引用的右上角上标显示，支持文献的自动排序与合并压缩（如 [1-3]）。
+% 正文字号修正：修正了原模板中正文字号偏小（五号）的问题，将其全局统一为标准的小四号宋体。
+% 表格视觉微调：调整了三线表（booktabs）的线条粗细参数，提升表格的视觉美观度与打印效果。
+% 页眉布局精调：校准了页眉高度与间距参数，确保版面的视觉呈现效果与 Microsoft Word 标准模板足够接近。
+% 标题字体统一：将各级标题数字编号的字体由 Times New Roman 修正为黑体。
+% 版面间距优化：调整了一级标题（章标题）的段前间距，修正了标题与页眉之间的垂直距离。
+% 解决浮动体单独成页居中问题：修复浮动体（图或表）单独成页时的居中显示问题
+% 前三页固定内容页面改为图片：前三页（中文封面，英文封面，独创性声明）内容改为使用pdf类型的矢量图元素进行填充。使用者可在word中对相关内容编辑完成之后导出pdf在此使用。
+
+
+% 缺失的仿宋_GB2312和楷体_GB2312字体问题还未解决
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                   基本设置
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[]{WTUthesis}
+\usepackage{afterpage,newtxmath,newtxtext,hyperref,titlesec,tabularx,threeparttable,booktabs,graphicx,caption,cleveref,listings}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{bicaption}
+\usepackage{pdfpages}
+\usepackage{mathtools}
+\usepackage{setspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 定义图\表标题字体及样式
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 1. 定义一个新的字体样式 "wuhaosong"：五号字(\zihao{5})，宋体(\songti)
+\DeclareCaptionFont{wuhaosong}{\zihao{5}\songti}
+% 2. 应用设置
+% font=wuhaosong: 整个标题（编号+内容）都用五号宋体
+% labelfont=normalfont: 确保编号（如"表1"）不加粗（覆盖之前的 bf 设置）
+\captionsetup[table]{labelsep=space, skip=0pt,  font={wuhaosong, bf}, labelfont=bf}
+\captionsetup[figure]{labelsep=space, skip=12pt, font=wuhaosong, labelfont=normalfont}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 果需要取消链接的带有颜色的方框，请添加以下代码:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hypersetup{colorlinks=false,hidelinks}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 定义表格中线的粗细
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\toprule}{\noalign{\vskip2pt}\specialrule{1.5pt}{0pt}{0pt}\noalign{\vskip2pt}}
+\renewcommand{\midrule}{\noalign{\vskip2pt}\specialrule{0.25pt}{0pt}{0pt}\noalign{\vskip2pt}}
+\renewcommand{\bottomrule}{\noalign{\vskip2pt}\specialrule{1.5pt}{0pt}{0pt}\noalign{\vskip2pt}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 定义公式编号格式：式(3.1)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \songti 确保"式"字使用的是宋体，与正文一致
+\newtagform{cn-eqn}{\songti\zihao{-4} 式(}{)}
+\usetagform{cn-eqn}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 自动参考文献管理设置
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 1. 加载 natbib 宏包
+% square: 方括号 []
+% comma: 标点用半角逗号 (满足"英文标点+半角"要求)
+% sort&compress: 自动排序压缩
+% super: 上标引用
+\usepackage[square,comma,sort&compress,super]{natbib}
+% 2. 设置参考文献列表的具体字体和行距
+% \zihao{-4}: 小四号
+% \songti: 宋体 (在 ctex 环境下，英文会自动匹配为 Times New Roman，只要样式文件加载了 newtxtext)
+% \setstretch{1.25}: 行距 1.25 倍 (需要 setspace 宏包)
+\renewcommand{\bibfont}{\zihao{-4}\songti\setstretch{1.25}}
+% 3. 调整参考文献条目之间的垂直间距 (可选，如果觉得太挤或太松)
+\setlength{\bibsep}{0pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 定义文献引用样式
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 2. 保存原始的引用命令为 \citen
+% 如果正文中需要正常大小的引用（如"文献[1]"），请使用 \citen{...}
+\let\citen\cite
+% 3. 重定义 \cite 命令以实现“带方括号的上标”
+% \textsuperscript{} 会把内容变为上标
+% \citen{} 会输出带方括号的正常引用 [1]
+% 组合起来就是：上标位置的 [1]
+\renewcommand{\cite}[1]{\textsuperscript{\citen{#1}}}
+
+\let\kaiti\kaishu
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                     这是分割线
+%                this is a seperate line
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\raggedbottom
+
+\begin{document}
+
+% 生成中文封面
+% 插入 pdf，pages={} 表示插入这个pdf的哪几个页面,也可以指定“-”表示插入所有页面
+% fitpaper=true 会调整纸张大小以适应插入的PDF（可选）
+\includepdf[pages={1}, fitpaper=true]{./figs/First_Three_Pages/Page_1.pdf} 
+
+% 空页
+\cleardoublepage
+
+% 生成英文封面
+\includepdf[pages={1}, fitpaper=true]{./figs/First_Three_Pages/Page_2.pdf} 
+
+% 生成独创性声明
+\includepdf[pages={1}, fitpaper=true]{./figs/First_Three_Pages/Page_3.pdf} 
+
+% 中文摘要页面//Chinese abstract page
+\cleardoublepage
+% 中文摘要
+\abstract{
+本文研究了XXXX问题。针对XXXX挑战，提出了XXXX方法。实验结果表明，该方法在XXXX数据集上取得了优异的性能。
+
+本文的主要贡献包括：
+1. 提出了XXXX网络架构。
+2. 设计了XXXX模块。
+3. 在多个基准数据集上验证了方法的有效性。
+}
+\keywords{深度学习，语义分割}
+\researchtype{应用研究}
+\makeabstract
+
+
+% 英文摘要页面//English abstract page
+% 英文摘要
+\engabstract{
+This thesis studies the problem of XXXX. To address the challenge of XXXX, a XXXX method is proposed. \\
+\indent Experimental results show that the proposed method achieves superior performance on XXXX datasets.\\
+\indent 
+}
+\engkeywords{Deep Learning; Semantic Segmentation}
+\engresearchtype{Application research}
+\engmakeabstract
+
+
+% 生成目录
+\cleardoublepage
+\pagestyle{tocpage}
+\pagenumbering{Roman}
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                     正文内容
+%                   main body content
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+\pagenumbering{arabic}
+\pagestyle{thesis}
+
+
+% ========================================================
+% 第一章：一级标题示例
+% ========================================================
+\chapter{一级标题示例}
+\textbf{一级标题（章标题）要求}：通常为\textbf{三号黑体}，居中显示，段前段后有特定间距（模板已自动设置）。
+
+这里是正文段落文字。正文排版要求如下：
+
+（1）全文一律采用无网格、小四号宋体字，行距为1.25倍，段前段后不空行。
+
+（2）全文所有英文和数字用小四Times New Roman字体。
+
+（3）段落首行缩进“两个字符”。
+
+
+\section{二级标题示例}
+本节展示二级标题格式。
+
+\textbf{二级标题要求}：所有二级标题为\textbf{四号黑体}，左对齐， 1.25倍行距，段前、段后各设为0.5行，不接排，模板已自动设置好。
+
+\subsection{三级标题示例}
+本节展示三级标题格式。
+
+\textbf{三级标题要求}：所有三级标题为\textbf{小四号黑体}，左对齐，1.25倍行距，段前、段后各设为0.5行，模板已自动设置好。
+
+\vspace{1em} % 增加一点垂直间距用于视觉分隔
+\noindent\textbf{关于四级标题或列表项的要求：}
+
+论文中通常不推荐使用 \texttt{\textbackslash subsubsubsection}。如果需要更细的层级，建议使用如下列表形式：
+
+（1）这是第一点。使用括号数字排序，文字接排。
+
+（2）这是第二点。
+
+
+% ========================================================
+% 第二章：图表与公式排版
+% ========================================================
+\chapter{第二章（图表与公式排版）}
+
+\section{图片排版具体要求}
+（1）图大小一般为高5—7cm，宽度应与原图成比例，不得变形。特殊情况下，高度可以适当放大。总而言之，一篇论文中，同类图片的大小应该一致，编排美观、整齐，比例协调。
+
+（2）所有插图按分章编号，如第1章，第3张图为“图1.3”，注意章和图序号之间用点号标；所有插图均需有图题（图的说明），图号及图题应在图的下方\textbf{五号宋体居中标出}，且图号和图题之间空一格。\textbf{模板已设置自动编号}。
+
+（3）一幅图如有若干分图，均应编分图号，用（a），（b），（c）．．．．．．按顺序编排
+
+
+\section{单张图片排版示例}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figs/Stranger_Things.jpg} 
+    % 中文标题
+    \caption{怪奇物语}
+    \vspace{-9pt}
+    % 英文标题
+    \caption*{{Fig. \thefigure} Stranger Things}
+    \label{chapter3-fig:Stranger-Things}
+\end{figure}
+
+\clearpage
+
+\section{多张图片排版示例}
+\begin{figure}[h]
+    \centering
+    % 第一行第一张：怪奇物语
+    \begin{minipage}[b]{0.4\textwidth}
+        \centering
+        % 请确保图片路径正确，例如 figs/Stranger_Things.jpg
+        \includegraphics[width=\textwidth]{figs/Stranger_Things.jpg}
+        \centerline{\zihao{5}(a) 怪奇物语} % 子标题
+    \end{minipage}
+    % \hfill % 弹性间距，撑满一行
+    % 第一行第二张：硅谷
+    \begin{minipage}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/Silicon_Valley.jpg}
+        \centerline{\zihao{5}(b) 硅谷}
+    \end{minipage}
+    
+    \vspace{12pt} % 两行之间的垂直间距
+    
+    % 第二行第一张：纸牌屋
+    \begin{minipage}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/House_Of_Cards.jpg}
+        \centerline{\zihao{5}(c) 纸牌屋}
+    \end{minipage}
+    % \hfill
+    % 第二行第二张：生活大爆炸
+    \begin{minipage}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/Big_Bang_Theory.jpg}
+        \centerline{\zihao{5}(d) 生活大爆炸}
+    \end{minipage}
+    
+    % --- 双语标题部分 ---
+    \vspace{5pt}
+    % 1. 中文标题
+    \caption{影视剧集数据集样本示例}
+    \vspace{-9pt}
+    % 2. 英文标题 (包含详细说明)
+    \caption*{{Fig. \thefigure} Sample images from the TV series dataset}
+    
+    % 标签
+    \label{fig:tv-series-samples}
+\end{figure}
+
+\section{图片引用示例}
+这里展示图片引用：如图 \ref{chapter3-fig:Stranger-Things} 所示，如图 \ref{fig:tv-series-samples}（a）、\ref{fig:tv-series-samples}（b）、\ref{fig:tv-series-samples}（c）和 \ref{fig:tv-series-samples}（d） 所示。
+
+\clearpage
+\section{表格排版具体要求}
+（1）按章编号，如第二章第二个表为：表2.2，并加标题，表号与标题间空一格，\textbf{标题字体为五号宋体加粗}，在表格上方居中排列。\textbf{模板已设置自动编号}。
+
+（2）表格用三线表表示（特殊情况例外），与文字齐宽，\textbf{上下边线，线粗1.5磅，表内线，线粗1/4磅。}表内同一栏的数字必须上下对齐。表内不宜用“同上”“同右”“//”和类似词，一律填入具体数字或文字。表内“空白”代表未测或无此项，\textbf{表内字体为5号宋体。在三线表中可以加辅助线，以适应较复杂表格的需要。}
+
+（3）\textbf{建议使用\texttt{booktabs}宏包进行表格的绘制，因模板中已对\texttt{\textbackslash toprule}，\texttt{\textbackslash midrule}，\texttt{\textbackslash bottomrule}三种水平线条的粗细进行了预设，能更方便的绘制三线表。}
+
+\section{表格示例}
+\begin{table}[h]
+    \centering
+    % 表内字体设置：通常要求为五号或小五号，以显得紧凑
+    \zihao{5}\songti
+    % 1. 中文标题
+    \caption{不同方法在数据集上的性能对比}
+    % 2. 英文标题
+    \caption*{{Table \thetable} Performance comparison of different methods on the dataset}
+    \label{tab:example-data}
+    
+    % 表格内容：推荐使用三线表 (booktabs宏包)
+    \begin{tabular}{l|ccc|c}
+    \toprule
+    方法 (Method) & 指标 A & 指标 B & 指标 C & 平均值 \\
+    \midrule
+    Method 1     & 85.2   & 84.1   & 86.5   & 85.3 \\
+    Method 2     & 88.4   & 87.9   & 89.1   & 88.5 \\
+    \textbf{Ours} & \textbf{90.1} & \textbf{89.5} & \textbf{91.2} & \textbf{90.5} \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{表格引用示例}
+这里展示表格引用：如表 \ref{tab:example-data} 所示。
+
+% ========================================================
+% 第三章：公式示例
+% ========================================================
+\chapter{第三章（公式示例）}
+
+\section{数学公式要求}
+\textbf{公式排版具体要求：}
+
+（1）公式号按章编排，如式（2.3），公式居中，编号右对齐
+
+\section{公式示例}
+（1）这是一个行内公式的示例：能量守恒方程 $E = mc^2$ 嵌入在文字中。
+
+（2）下面是一个带编号的行间公式居中对齐示例：
+\begin{align}
+    \mathcal{L}_{total} = \lambda_1 \mathcal{L}_{ce} + \lambda_2 \mathcal{L}_{dice} + \alpha \sum_{i=1}^{N} w_i ||x_i||^2
+    \label{eq:loss}
+\end{align}
+
+（3）下面是多个带编号的行间公式居中对齐示例：
+\begin{gather}
+    \mathcal{L}_{ce} = - \sum_{c=1}^M y_{o,c} \log(p_{o,c}) \\
+    \mathcal{L}_{dice} = 1 - \frac{2 |X \cap Y|}{|X| + |Y|} \\
+    \mathcal{L}_{total} = \lambda_1 \mathcal{L}_{ce} + \lambda_2 \mathcal{L}_{dice} + \alpha \sum_{i=1}^{N} w_i ||x_i||^2
+    \label{eq:loss_gathered}
+\end{gather}
+
+\section{公式引用示例}
+这里展示公式引用：如公式 \ref{eq:loss} 所示。
+
+
+% ========================================================
+% 第四章：参考文献引用示例
+% ========================================================
+\chapter{第四章（参考文献引用示例）}
+
+\section{参考文献排版要求}
+
+（1）参考文献在整个论文中\textbf{按出现的次序列出}；数量一般要求在50篇以上，其中外文参考文献应在20篇左右。
+
+（2）\textbf{正文为小四号宋体，英文用Times New Roman体，行距为1.25倍；参考文献中的标点符号：英文标点+半角。}\
+
+（3）该模板中列表格式严格遵循 GB/T 7714 标准（顺序编码制）。
+
+\section{参考文献引用示例}
+
+本模板已配置好 \texttt{natbib} 宏包以及单独的\texttt{gbt7714-numerical.bst}文件作为参考文献样式，支持自动排序和压缩。具体引用指令如下：
+
+\subsection{单篇文献引用示例}
+在正文叙述完一个观点后，使用 \texttt{\textbackslash cite\{key\}} 命令。引用标记会自动变为右上角上标。
+
+\textbf{示例：}
+引用了一个单独的文献\cite{niu1}
+
+\subsection{多篇文献合并引用示例}
+当需要同时引用多篇文献时，只需在 \texttt{\textbackslash cite} 命令中用逗号分隔 key 即可，例如\texttt{\textbackslash cite\{key1, key2, key3\}}。模板会自动将连续的编号合并为范围（如 [1-3]）。
+
+\textbf{示例：}
+引用了多篇编号连续的文献\cite{niu1,niu2,niu3}，引用了多篇编号不连续的文献\cite{niu1,ASPP,TPAMI2}
+
+\subsection{文献编排样式展示}
+文献\cite{niu1}为硕士学位论文
+
+文献\cite{niu2,niu3}为中文期刊论文
+
+文献\cite{ImageNet,TPAMI1,TPAMI2}为英文期刊论文
+
+文献\cite{ECCV,Swin-T,ResNet-dilated}为国际学术会议论文
+
+文献\cite{ASPP,VggNet,Vit}为arxiv预印本论文
+
+% ========================================================
+% 第五章：总结与展望
+% ========================================================
+\chapter{总结与展望}
+\section{主要工作总结}
+本文围绕$\cdots$进行了深入研究，主要完成了以下工作：
+
+\textbf{（1）工作一$\cdots$}
+
+$\cdots$
+
+\textbf{（2）工作二$\cdots$}
+
+$\cdots$
+
+\section{未来工作展望}
+未来的研究工作可以从以下几个方向展开：
+
+\textbf{（1）方向一$\cdots$}
+
+$\cdots$
+
+\textbf{（2）方向二$\cdots$}
+
+$\cdots$
+
+\textbf{（2）方向三$\cdots$}
+
+$\cdots$
+% ========================================================
+% 参考文献
+% ========================================================
+\clearpage
+\addcontentsline{toc}{chapter}{参考文献} 
+% 导入参考文献风格gbt7714-numerical.bst文件
+\bibliographystyle{gbt7714-numerical}  
+% 导入参考文献reference.bib文件
+\bibliography{reference}
+
+
+% ========================================================
+% 附录
+% ========================================================
+\clearpage
+\chapter*{附录}
+\addcontentsline{toc}{chapter}{附录} 
+\markboth{附录}{附录} 
+\section*{附录$\mathrm{I}$ 本人在攻读硕士学位期间获得的研究成果}
+% 开始自动编号列表
+% label={[\arabic*]} : 设置编号格式为 [1], [2], [3]
+% leftmargin=0pt     : 列表整体左边距为0 (序号贴着左边缘)
+% labelsep=1em       : 【关键】调整序号和文字之间的间距
+% itemsep=0.5em      : 条目之间的垂直间距
+% align=left         : 标签左对齐
+\begin{enumerate}[label={[\arabic*]}, leftmargin=1.5em, labelsep=0.5em, parsep=0pt, itemsep=3pt]
+    \zihao{-4}\songti
+    
+    \item xxxxx论文（已录用，中科院SCI、CCF xxxxx）。
+    
+    \item xxxxx软著（软件著作权登记号：xxxxx）。
+    
+    \item xxxxx专利（已受理，申请号：xxxxx）。
+
+\end{enumerate}
+
+\section*{附录$\mathrm{II}$ 本人在攻读硕士学位期间参加的比赛与获奖}
+\begin{enumerate}[label={[\arabic*]}, leftmargin=1.5em, labelsep=0.5em, parsep=0pt, itemsep=3pt]
+    \zihao{-4}\songti
+    
+    \item 2025年获得研究生“xx奖学金”。
+    
+    \item 2025年获得x等“研究生学业奖学金”。
+    
+    \item 2024年获得xx大赛“x等奖”。
+
+    \item 2023年获得xx大赛“x等奖”。
+
+\end{enumerate}
+
+
+% ========================================================
+% 致谢
+% ========================================================
+\clearpage
+\chapter*{致谢}
+\addcontentsline{toc}{chapter}{致谢}
+% 如果你的页眉显示的是“第X章”，这一步可以强制改成“致谢”
+\markboth{致谢}{致谢} 
+行文至此，落笔为终。回首这段求学时光，心中感慨万千。这篇论文的完成，不仅是对我研究生阶段学习成果的总结，更离不开这一路走来给予我指导、帮助与陪伴的师长、同窗及家人。
+
+$\cdots$
+
+$\cdots$
+
+$\cdots$
+
+凡是过往，皆为序章。硕士学业的结束是终点，也是新的起点。未来路漫漫，我将带着这份感恩之心，脚踏实地，砥砺前行，不负韶华。
+
+\end{document}
+	
