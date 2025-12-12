@@ -1,7 +1,16 @@
 ```markdown
 # 武汉纺织大学计算机与人工智能学院硕士学位论文 LaTeX 模板 (WTU Master's Thesis Template)
 
-<a href="#" target="_blank"><img src="https://img.shields.io/badge/build-passing-000000?style=flat" alt="build" />
+<br>
+  <a href="https://github.com/TheAlgorithms/Python/actions">
+    <img src="https://img.shields.io/github/actions/workflow/status/TheAlgorithms/Python/build.yml?branch=master&label=CI&logo=github&style=flat-square" height="20" alt="GitHub Workflow Status">
+  </a>
+  <a href="https://github.com/pre-commit/pre-commit">
+    <img src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white&style=flat-square" height="20" alt="pre-commit">
+  </a>
+  <a href="https://docs.astral.sh/ruff/formatter/">
+    <img src="https://img.shields.io/static/v1?label=code%20style&message=ruff&color=black&style=flat-square" height="20" alt="code style: black">
+  </a>
 
 本项目是武汉纺织大学（WTU）硕士学位论文的 LaTeX 模板（2025修订版）。基于原作者架构进行了深度优化与功能扩展，旨在符合学校最新的学位论文排版规范，修复了多项排版痛点，提供了更加自动化、规范化的写作体验。
 
