@@ -1,4 +1,4 @@
-# 武汉纺织大学计算机与人工智能学院硕士学位毕业论文 LaTeX 模板 (WTU Master's Thesis Template)
+# 武汉纺织大学计算机与人工智能学院硕士学位（研究生）毕业论文 LaTeX 模板 (WTU Master's Thesis Template)
 
 ![LaTeX](https://img.shields.io/badge/Language-LaTeX-green.svg)
 ![Version](https://img.shields.io/badge/Version-1.0-blue.svg)
