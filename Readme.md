@@ -82,12 +82,22 @@
 
 ## 👥 作者信息 (Authors)
 
-*   **Author 1**: Xin Du (杜鑫)
-    *   Institution: School of Economics, Wuhan Textile University
-    *   Email: hhkaaen@hotmail.com
-*   **Author 2**: Yan Haijun (严海军)
-    *   Institution: School of Computer and Artificial Intelligence, Wuhan Textile University
-    *   Email: yanhaijun666@gmail.com
+本项目由武汉纺织大学在读研究生维护。如果您有任何改进建议或发现了 Bug，欢迎通过邮件或 GitHub Issue 联系我们。
+
+*   **Xin Du (杜鑫)**
+    *   🏫 **学院**：经济学院 (School of Economics)
+    *   🛠️ **贡献**：项目发起、核心架构设计、宏包适配、文档编写
+    *   📫 **邮箱**：hhkaaen@hotmail.com
+    *   🌐 **主页**：[GitHub Profile](https://github.com/YourUsername1) <!-- 请替换为实际GitHub链接，如果没有可删除此行 -->
+
+*   **Yan Haijun (严海军)**
+    *   🏫 **学院**：计算机与人工智能学院 (School of Computer Science and Artificial Intelligence)
+    *   💻 **贡献**：代码重构、编译逻辑优化、样式修正、TeXPage 适配
+    *   📫 **邮箱**：yanhaijun666@gmail.com
+    *   🌐 **主页**：[GitHub Profile](https://github.com/YourUsername2) <!-- 请替换为实际GitHub链接 -->
+
+---
+*我们也欢迎更多的 WTUer 加入维护列表，共同完善此模板！*
 
 ## 📜 许可证
 
