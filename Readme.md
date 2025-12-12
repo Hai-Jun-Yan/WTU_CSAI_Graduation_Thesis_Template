@@ -1,20 +1,7 @@
 ```markdown
 # 武汉纺织大学计算机与人工智能学院硕士学位论文 LaTeX 模板 (WTU Master's Thesis Template)
 
-<a href="https://gitpod.io/#https://github.com/TheAlgorithms/Python">
-    <img src="https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod&style=flat-square" height="20" alt="Gitpod Ready-to-Code">
-  </a>
-  <a href="https://github.com/TheAlgorithms/Python/blob/master/CONTRIBUTING.md">
-    <img src="https://img.shields.io/static/v1.svg?label=Contributions&message=Welcome&color=0059b3&style=flat-square" height="20" alt="Contributions Welcome">
-  </a>
-  <img src="https://img.shields.io/github/repo-size/TheAlgorithms/Python.svg?label=Repo%20size&style=flat-square" height="20">
-  <a href="https://the-algorithms.com/discord">
-    <img src="https://img.shields.io/discord/808045925556682782.svg?logo=discord&colorB=7289DA&style=flat-square" height="20" alt="Discord chat">
-  </a>
-  <a href="https://gitter.im/TheAlgorithms/community">
-    <img src="https://img.shields.io/badge/Chat-Gitter-ff69b4.svg?label=Chat&logo=gitter&style=flat-square" height="20" alt="Gitter chat">
-  </a>
-
+[![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 本项目是武汉纺织大学（WTU）硕士学位论文的 LaTeX 模板（2025修订版）。基于原作者架构进行了深度优化与功能扩展，旨在符合学校最新的学位论文排版规范，修复了多项排版痛点，提供了更加自动化、规范化的写作体验。
 
 > **注意**：本模板适用于 2025 年及以后的学位论文排版要求。
