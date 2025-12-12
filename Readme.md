@@ -1,7 +1,7 @@
 ```markdown
 # 武汉纺织大学计算机与人工智能学院硕士学位论文 LaTeX 模板 (WTU Master's Thesis Template)
 
-![Language](https://badgen.net/badge/Language/LaTeX/green) ![Version](https://badgen.net/badge/Version/1.0/blue) ![Institution](https://badgen.net/badge/Institution/WTU/red)
+!\[Python版本]\(https://img.shields.io/badge/Python-3.9%2B-blue)
 
 本项目是武汉纺织大学（WTU）硕士学位论文的 LaTeX 模板（2025修订版）。基于原作者架构进行了深度优化与功能扩展，旨在符合学校最新的学位论文排版规范，修复了多项排版痛点，提供了更加自动化、规范化的写作体验。
 
