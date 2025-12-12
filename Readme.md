@@ -37,7 +37,7 @@
 
 为了获得最流畅的写作体验并避免复杂的本地环境配置，建议采用以下方式：
 
-*   **编译平台**：推荐使用 [TeXPage](https://www.texpage.com/) 平台编译（引擎选 XeLaTeX）。
+*   **编译平台**：推荐使用 [TeXPage](https://www.texpage.com/) 平台编译，因时间紧迫，暂未适配本地环境和 Overleaf，敬请谅解。
 *   **编译引擎**：必须使用 **XeLaTeX**。
 
 ## 📂 项目结构 (File Structure)
