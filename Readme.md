@@ -59,37 +59,28 @@
 
 ## 🚀 使用指南 (Usage)
 
-### 1. 准备封面 (关键步骤)
-由于 LaTeX 制作中文封面难以完美匹配学校 Word 模板的下划线和特定间距，本模板采用 **PDF 插入法**：
-1. 使用学校提供的官方 Word 模板填写中文封面、英文封面和独创性声明。
-2. 将这三页分别导出为 PDF 文件。
-3. 替换项目目录 `figs/First_Three_Pages/` 下的 `Page_1.pdf`, `Page_2.pdf`, `Page_3.pdf`。
+本模板已针对 [TeXPage](https://www.texpage.com/) 在线编译平台进行优化。请按照以下步骤操作：
 
+### 1. 项目导入与配置
+1.  **下载项目**：点击 GitHub 页面右上角的 `Code` -> `Download ZIP` 下载本项目压缩包。
+2.  **上传平台**：登录 TeXPage，点击“新建项目” -> “上传项目”，选择刚刚下载的 ZIP 包。
+3.  **设置引擎**：进入TeXPage页面右上角项目设置或编译选项，**务必将编译引擎设置为 `XeLaTeX`**（否则中文无法显示）。
 
-### 2. 常用代码示例
+### 2. 封面与声明替换（关键步骤）
+由于 LaTeX 制作中文封面难以完美复刻 Word 格式的下划线与间距，本模板采用 **PDF 插入法**，通用于所有学院：
+1.  使用学校官方提供的 Word 模板，填写好**中文封面**、**英文封面**和**独创性声明**。
+2.  将这三页分别导出为独立的 PDF 文件。
+3.  将导出的文件重命名为 `Page_1.pdf` (中文封面)、`Page_2.pdf` (英文封面)、`Page_3.pdf` (声明)。
+4.  在 TeXPage 的文件列表中，找到 `figs/First_Three_Pages/` 目录，上传并**覆盖**原有的同名文件。
 
-#### 插入双语标题图片
-```latex
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.9\textwidth]{figs/example.jpg} 
-    % 中文标题
-    \caption{中文标题内容}
-    \vspace{-9pt}
-    % 英文标题 (注意格式)
-    \caption*{{Fig. \thefigure} English Title Content}
-    \label{fig:example}
-\end{figure}
-```
+### 3. 内容撰写
+打开主文档 `thesis_template.tex` 开始写作：
+*   **摘要修改**：搜索 `\abstract` 和 `\engabstract` 修改中英文摘要。
+*   **正文撰写**：在 `Main body content` 区域编写章节，使用 `\chapter{}`、`\section{}` 构建文档结构。
+*   **参考文献**：在 `reference.bib` 文件中添加 BibTeX 格式的文献数据。
 
-#### 引用参考文献
-```latex
-% 单篇引用
-...结论见文献\cite{key1}。
+### 4. 常用语法速查 (Cheat Sheet)
 
-% 多篇引用（自动合并为 [1-3]）
-...多项研究表明\cite{key1, key2, key3}。
-```
 
 ## 👥 作者信息 (Authors)
 
