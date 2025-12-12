@@ -76,7 +76,7 @@
 ### 3. 内容撰写
 打开主文档 `thesis_template.tex` 开始写作：
 *   **摘要修改**：搜索 `\abstract` 和 `\engabstract` 修改中英文摘要。
-*   **正文撰写**：在 `Main body content` 区域编写章节，使用 `\chapter{}`、`\section{}` 构建文档结构。
+*   **正文撰写**：在 `Main body content` 区域编写章节，使用 `\chapter{}`、`\section{}` 、`\subsection{}`构建文档结构。
 *   **参考文献**：在 `reference.bib` 文件中添加 BibTeX 格式的文献数据。
 
 
