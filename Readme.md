@@ -4,7 +4,7 @@
 ![Version](https://img.shields.io/badge/Version-1.0-blue.svg)
 ![Institution](https://img.shields.io/badge/Institution-WTU-red.svg)
 
-### 如有疑问或想讨论结果，请前往我的[个人博客网站](https://www.blog-haijun.site)在对应的文章下留言，我会第一时间回复。
+### 如有疑问或想讨论结果，请前往我的[**个人博客网站**](https://www.blog-haijun.site)在对应的文章下留言，我会第一时间回复。
 
 [**👀 在线预览**](https://cdn.jsdmirror.com/gh/Hai-Jun-Yan/WTU_CSAI_Graduation_Thesis_Template/Preview.pdf) | [**⚡TexPage官网**](https://www.texpage.com)
 
