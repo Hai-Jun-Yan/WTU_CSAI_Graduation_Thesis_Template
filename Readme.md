@@ -4,6 +4,10 @@
 ![Version](https://img.shields.io/badge/Version-1.0-blue.svg)
 ![Institution](https://img.shields.io/badge/Institution-WTU-red.svg)
 
+### 如有疑问或想讨论结果，请前往我的[<u>个人博客网站</u>](https://www.blog-haijun.site)在对应的文章下留言，我会第一时间回复。
+
+[**👀 在线预览**](https://cdn.jsdmirror.com/gh/Hai-Jun-Yan/WTU_CSAI_Graduation_Thesis_Template/Preview.pdf) | [**⚡TexPage官网**](https://www.texpage.com)
+
 本项目是武汉纺织大学（WTU）硕士学位论文的 LaTeX 模板（2025修订版）。基于原作者架构进行了深度优化与功能扩展，旨在符合学校最新的学位论文排版规范，修复了多项排版痛点，提供了更加自动化、规范化的写作体验。
 
 <mark>各学院同学仅需替换前三页（封面及声明）内容即可直接使用。</mark>
