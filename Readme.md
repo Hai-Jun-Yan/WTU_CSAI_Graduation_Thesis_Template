@@ -86,7 +86,7 @@
 
 ## 👏 致谢原作者
 
-本项目是基于 [**Du Xin (杜鑫)**](https://github.com/dux1n4real) 学长的原版模板进行的二次开发与维护。原作者为本项目的架构奠定了坚实基础，特此致谢。
+本项目是基于 [**杜鑫**](https://github.com/dux1n4real) 学长的原版模板进行的二次开发与维护。原作者为本项目的架构奠定了坚实基础，特此致谢。
 
 
 ## 👥 作者信息 (Authors)
@@ -96,7 +96,7 @@
     *   🛠️ **贡献**：项目发起、构建核心文档类 (`.cls`)、定义基础宏包架构
     *   📫 **邮箱**：hhkaaen@hotmail.com
 
-*   **Yan Haijun (严海军)**
+*   **Haijun Yan (严海军)**
     *   🏫 **学院**：计算机与人工智能学院 (School of Computer Science and Artificial Intelligence)
     *   💻 **贡献**：代码重构、TeXPage适配、修复字体/目录/页眉等排版 Bug、引入矢量封面。
     *   📫 **邮箱**：yanhaijun666@gmail.com
