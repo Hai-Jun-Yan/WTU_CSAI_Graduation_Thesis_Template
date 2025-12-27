@@ -98,7 +98,7 @@
 
 *   **Haijun Yan (严海军)**
     *   🏫 **学院**：计算机与人工智能学院 (School of Computer Science and Artificial Intelligence)
-    *   💻 **贡献**：代码重构、TeXPage适配、修复字体/目录/页眉等排版 Bug、引入矢量封面。
+    *   💻 **贡献**：代码重构、修复字体/目录/页眉等排版 Bug、引入矢量封面。
     *   📫 **邮箱**：yanhaijun666@gmail.com
     *   🌐 **Blog**：[www.blog-haijun.site](https://www.blog-haijun.site)
 
