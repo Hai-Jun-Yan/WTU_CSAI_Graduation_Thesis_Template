@@ -87,8 +87,8 @@
 
 本项目在 V1.0 版本的深度优化和重构前，其基础架构源自：
 
-*   **原始模板作者**：[dux1n4real](https://github.com/dux1n4real/WTU-template)
-*   **贡献**：提供了最初的武汉纺织大学硕士论文 LaTeX 模板框架。
+*   **原始模板作者**：[dux1n4real](https://github.com/dux1n4real)。
+*   **贡献**：提供了最初的[武汉纺织大学硕士论文 LaTeX 模板框架](https://github.com/dux1n4real/WTU-template)。
 
 本项目在其基础上进行了大规模的重构、Bug 修复和功能扩展，以适配学校最新规范。
 
