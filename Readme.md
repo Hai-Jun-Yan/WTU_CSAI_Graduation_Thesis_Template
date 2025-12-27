@@ -3,6 +3,7 @@
 ![LaTeX](https://img.shields.io/badge/Language-LaTeX-green.svg)
 ![Version](https://img.shields.io/badge/Version-1.0-blue.svg)
 ![Institution](https://img.shields.io/badge/Institution-WTU-red.svg)
+![Status](https://img.shields.io/badge/Status-Unofficial-orange.svg)
 
 ### 如有疑问或想讨论结果，请前往我的[**个人博客网站**](https://www.blog-haijun.site)在对应的文章下留言，我会第一时间回复。
 
@@ -83,35 +84,32 @@
 *   **正文撰写**：在 `Main body content` 区域编写章节，使用 `\chapter{}`、`\section{}` 、`\subsection{}`构建文档结构。
 *   **参考文献**：在 `reference.bib` 文件中添加 BibTeX 格式的文献数据。
 
-## 👏 致谢与源头 (Acknowledgement & Source)
+## 👏 致谢原作者
 
-本项目在 V1.0 版本的深度优化和重构前，其基础架构源自：
-
-*   **原始模板作者**：[dux1n4real](https://github.com/dux1n4real)。
-*   **贡献**：提供了最初的[武汉纺织大学硕士论文 LaTeX 模板框架](https://github.com/dux1n4real/WTU-template)。
-
-本项目在其基础上进行了大规模的重构、Bug 修复和功能扩展，以适配学校最新规范。
+本项目是基于 [**Du Xin (杜鑫)**](https://github.com/dux1n4real) 学长的原版模板进行的二次开发与维护。原作者为本项目的架构奠定了坚实基础，特此致谢。
 
 
 ## 👥 作者信息 (Authors)
 
-本项目由武汉纺织大学在读研究生维护。如果您有任何改进建议或发现了 Bug，欢迎通过邮件或 GitHub Issue 联系我们。
-
 *   **Xin Du (杜鑫)**
     *   🏫 **学院**：经济学院 (School of Economics)
-    *   🛠️ **贡献**：项目发起、核心架构设计、宏包适配
+    *   🛠️ **贡献**：项目发起、构建核心文档类 (`.cls`)、定义基础宏包架构
     *   📫 **邮箱**：hhkaaen@hotmail.com
 
 *   **Yan Haijun (严海军)**
     *   🏫 **学院**：计算机与人工智能学院 (School of Computer Science and Artificial Intelligence)
-    *   💻 **贡献**：代码重构、编译逻辑优化、样式修正、TeXPage 适配
+    *   💻 **贡献**：代码重构、TeXPage适配、修复字体/目录/页眉等排版 Bug、引入矢量封面。
     *   📫 **邮箱**：yanhaijun666@gmail.com
+    *   🌐 **Blog**: [www.blog-haijun.site](https://www.blog-haijun.site)
 
 ---
 *我们也欢迎更多的 WTUer 加入维护列表，共同完善此模板！*
 
-## 📜 许可证 (License)
+## ⚖️ 免责声明与许可 (Disclaimer & License)
 
-本项目遵循 **MIT License** 开源。使用者可自由使用、修改、分发本项目，但必须保留原作者的版权信息。
-
-本模板仅供学术交流与学习使用。在使用前请务必核对学校最新的学位论文撰写规范。
+1.  **非官方性质**：本项目属于**个人维护**的开源项目，**非武汉纺织大学官方发布**。
+    *   模板样式是根据作者个人对学校最新格式规范的理解编写的，虽已尽力确保符合要求，但无法保证 100% 无误。
+    *   **使用风险自负**：请在使用前务必对照学校教务处/研究生院发布的最新《学位论文撰写规范》。如果因为格式问题影响论文送审或答辩，作者不承担任何责任。
+2.  **开源协议**：本项目遵循 [MIT License](https://opensource.org/licenses/MIT) 开源协议。
+    *   ✅ 允许：免费使用、修改、分发、私有化部署。
+    *   ❌ 禁止：将本项目的代码或衍生作品用于**商业出售**（如淘宝代写、付费模板等）。
