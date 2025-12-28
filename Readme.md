@@ -83,26 +83,26 @@
 1.   **摘要修改**：搜索 `\abstract` 和 `\engabstract` 修改中英文摘要。
 2.   **正文撰写**：在 `Main body content` 区域编写章节，使用 `\chapter{}`、`\section{}` 、`\subsection{}`构建文档结构。
 3.   **参考文献管理**：
-    *   **数据获取**：打开 `reference.bib` 文件，将文献数据粘贴进去。
-        *   **知网 (CNKI)**：文献导出格式选择 **“BibTeX”** → 复制显示的几行代码。
-        *   **谷歌学术（Google Scholar）**：点击 **“引用”** →  点击 **“BibTeX”** 链接 →  复制内容。
-        *   **IEEE/Elsevier/Springer/ACM**：寻找 "Citation（引用）"的相关选项并选择 BibTeX 格式。
-    *   **格式详解**：BibTeX 数据通常包含很多字段，以下是核心字段的含义说明。
-        *   **关于引用标签 (Key)**：第一行的单词（如 `my_ref_01`）是**你可以随意修改的**。建议改成好记的名字（如 `作者名年份`），只要保证和正文里 `\cite{...}` 填写的名字一致即可。
-        *   **关于字段缺失/冗余**：下载的数据中如果包含 `abstract`、`file` 等无关字段可以删除；如果缺少 `volume` 或 `number` 字段（部分期刊没有卷号），留空或删除该行即可，不会报错。
+     *   **数据获取**：打开 `reference.bib` 文件，将文献数据粘贴进去。
+         *   **知网 (CNKI)**：文献导出格式选择 **“BibTeX”** → 复制显示的几行代码。
+         *   **谷歌学术（Google Scholar）**：点击 **“引用”** →  点击 **“BibTeX”** 链接 →  复制内容。
+         *   **IEEE/Elsevier/Springer/ACM**：寻找 "Citation（引用）"的相关选项并选择 BibTeX 格式。    
+     *   **格式详解**：BibTeX 数据通常包含很多字段，以下是核心字段的含义说明。
+         *   **关于引用标签 (Key)**：第一行的单词（如 `my_ref_01`）是**你可以随意修改的**。建议改成好记的名字（如 `作者名年份`），只要保证和正文里 `\cite{...}` 填写的名字一致即可。
+         *   **关于字段缺失/冗余**：下载的数据中如果包含 `abstract`、`file` 等无关字段可以删除；如果缺少 `volume` 或 `number` 字段（部分期刊没有卷号），留空或删除该行即可，不会报错。
         
-        ```bibtex
-        @article{my_ref_01,      % <--- 【引用标签】自定义的唯一ID。正文需写 \cite{my_ref_01}
-          title={Deep learning}, % 论文标题
-          author={Li, Ming and Zhang, San}, % 作者：多位作者必须用 and 连接，不要用逗号
-          journal={Journal of CS}, % 期刊名称
-          volume={10},           % 卷号 (可选，没有可删除)
-          number={2},            % 期号 (可选，没有可删除)
-          pages={100--110},      % 页码范围
-          year={2024},           % 发表年份
-          publisher={IEEE}       % 出版社 (可选，通常期刊论文不需要)
-        }
-        ```
+            ```bibtex
+            @article{my_ref_01,      % <--- 【引用标签】自定义的唯一ID。正文需写 \cite{my_ref_01}
+            title={Deep learning}, % 论文标题
+            author={Li, Ming and Zhang, San}, % 作者：多位作者必须用 and 连接，不要用逗号
+            journal={Journal of CS}, % 期刊名称
+            volume={10},           % 卷号 (可选，没有可删除)
+            number={2},            % 期号 (可选，没有可删除)
+            pages={100--110},      % 页码范围
+            year={2024},           % 发表年份
+            publisher={IEEE}       % 出版社 (可选，通常期刊论文不需要)
+            }
+            ```
 
 ### 4. 参考文献格式微调（如需手动调整）
 
