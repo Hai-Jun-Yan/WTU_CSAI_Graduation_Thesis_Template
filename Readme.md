@@ -80,12 +80,12 @@
 
 ### 3. 内容撰写
 打开主文档 `thesis_template.tex` 开始写作：
-*   **摘要修改**：搜索 `\abstract` 和 `\engabstract` 修改中英文摘要。
-*   **正文撰写**：在 `Main body content` 区域编写章节，使用 `\chapter{}`、`\section{}` 、`\subsection{}`构建文档结构。
-*   **参考文献管理**：
+1.   **摘要修改**：搜索 `\abstract` 和 `\engabstract` 修改中英文摘要。
+2.   **正文撰写**：在 `Main body content` 区域编写章节，使用 `\chapter{}`、`\section{}` 、`\subsection{}`构建文档结构。
+3.   **参考文献管理**：
     *   **数据获取**：打开 `reference.bib` 文件，将文献数据粘贴进去。
         *   **知网 (CNKI)**：文献导出格式选择 **“BibTeX”** → 复制显示的几行代码。
-        *   **谷歌学术（Google Scholar）*：点击 **“引用”** →  点击 **“BibTeX”** 链接 →  复制内容。
+        *   **谷歌学术（Google Scholar）**：点击 **“引用”** →  点击 **“BibTeX”** 链接 →  复制内容。
         *   **IEEE/Elsevier/Springer/ACM**：寻找 "Citation（引用）"的相关选项并选择 BibTeX 格式。
     *   **格式详解**：BibTeX 数据通常包含很多字段，以下是核心字段的含义说明。
         *   **关于引用标签 (Key)**：第一行的单词（如 `my_ref_01`）是**你可以随意修改的**。建议改成好记的名字（如 `作者名年份`），只要保证和正文里 `\cite{...}` 填写的名字一致即可。
