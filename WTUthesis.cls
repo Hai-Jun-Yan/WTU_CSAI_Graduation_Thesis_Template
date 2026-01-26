@@ -6,18 +6,21 @@
 % 2025-3-20 v1.0
 % 作者：杜鑫// 机构：武汉纺织大学经济学院// 联系方式：hhkaaen@hotmail.com (欢迎联系！)
 % Author: Xin Du// Institution: School of Economics, Wuhan Textile University// Email: hhkaaen@hotmail.com (open to suggestions!)
-%
+% GitHub: https://github.com/dux1n4real
 
+% 2025-11-24 v2.0
 % 作者 2：严海军// 机构：武汉纺织大学计算机与人工智能学院// 联系方式：yanhaijun66@gmail.com (欢迎联系！)
-% Author 2: Yan Haijun // Institution: School of Computer and Artificial Intelligence, Wuhan Textile University // Email: yanhaijun666@gmail.com (Welcome to contact!)
+% Author 2: Yan Haijun // Institution: School of Computer Science and Artificial Intelligence, Wuhan Textile University // Email: yanhaijun666@gmail.com (Welcome to contact!)
+% GitHub: https://github.com/Hai-Jun-Yan/WTU_CSAI_Graduation_Thesis_Template
+% 个人博客: https://www.blog-haijun.site/
 
 % WTUthesis.cls -- 本文件适用于武汉纺织大学毕业论文格式 (非官方)
 % 本文件是一个 cls 文件，主要用于定义 class，而非直接编译.
 % WTUthesis.cls -- this document is used for graduate thesis template of Wuhan Textile University (non-official)
 % this document is used for defining class, not for direct encode.
-%
-% 祝各位在毕业季都一路顺风! Bon voyage!
-% may all the graduate have a good trip!
+
+% 希望各位毕业的学弟学妹们在使用本模板的过程中能够遇到最少的问题，也欢迎各位在使用过程中遇到的问题与我联系。祝大家顺利毕业！
+% 个人博客: https://www.blog-haijun.site/
 
 
 \NeedsTeXFormat{LaTeX2e}
@@ -76,194 +79,6 @@
 \newcommand{\shuoshi}{\fontsize{26pt}{31.2pt}\selectfont\kaishu\bfseries}  % 开头字体//title font
 \newcommand{\timu}{\fontsize{22pt}{28pt}\selectfont\fangsong\bfseries\centering}  % 标题字体//title font
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                      封面页设置
-%                 Title page settings
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% 中文页面//Chinese title page
-\def\classification#1{\def\@classification{#1}}
-\def\UDC#1{\def\@UDC{#1}}
-\def\schoolcode#1{\def\@schoolcode{#1}}
-\def\secretlevel#1{\def\@secretlevel{#1}}
-\def\title#1{\def\@title{#1}}
-\def\subtitle#1{\def\@subtitle{#1}}
-\def\author#1{\def\@author{#1}}
-\def\studentid#1{\def\@studentid{#1}}
-\def\advisor#1{\def\@advisor{#1}}
-\def\major#1{\def\@major{#1}}
-\def\department#1{\def\@department{#1}}
-\def\direction#1{\def\@direction{#1}}
-\def\completedate#1{\def\@completedate{#1}}
-
-% 【新增】定义论文类型勾选命令 (0=不选, 1-5 对应五个选项)
-\def\thesistype#1{\def\@thesistype{#1}}
-\thesistype{0} % 默认不勾选任何项
-
-% 英文页面//English title page
-\def\engtitle#1{\def\@engtitle{#1}}
-\def\engsubtitle#1{\def\@engsubtitle{#1}}
-\def\engauthor#1{\def\@engauthor{#1}}
-\def\engadvisor#1{\def\@engadvisor{#1}}
-\def\engdate#1{\def\@engdate{#1}}
-\def\engdegree#1{\def\@engdegree{#1}}
-
-% 设置默认值//default
-\classification{}
-\UDC{}
-\schoolcode{}
-\secretlevel{}
-\title{}
-\subtitle{}
-\author{}
-\studentid{}
-\advisor{}
-\major{}
-\department{}
-\direction{}
-\completedate{}
-
-\engdegree{}
-\engtitle{}
-\engsubtitle{}
-\engauthor{}
-\engadvisor{}
-\engdate{}
-
-% 中文封面页设置//Chinese title page
-\renewcommand{\maketitle}{
-	\begin{titlepage}
-% 定义勾选框的判断逻辑
-% 【最终方案】手动将 \checkmark (✓) 叠加到 \square (□) 上
-		% 【最终方案 v3】加入 \hspace 实现左右位置微调
-\newcommand{\checka}{\raisebox{-0.2ex}{\resizebox{2.05ex}{!}{\ifnum\@thesistype=1 \rlap{\hspace{0.5pt}\raisebox{0.4ex}{\scalebox{0.7}{$\bm{\checkmark$}}}}$\square$\else $\square$\fi}}}
-
-\newcommand{\checkb}{\raisebox{-0.2ex}{\resizebox{2.05ex}{!}{\ifnum\@thesistype=2 \rlap{\hspace{1pt}\raisebox{0.2ex}{\scalebox{0.6}{$\bm{\checkmark$}}}}$\square$\else $\square$\fi}}}
-
-\newcommand{\checkc}{\raisebox{-0.2ex}{\resizebox{2.05ex}{!}{\ifnum\@thesistype=3 \rlap{\hspace{0.5pt}\raisebox{0.4ex}{\scalebox{0.7}{$\bm{\checkmark$}}}}$\square$\else $\square$\fi}}}
-
-\newcommand{\checkd}{\raisebox{-0.2ex}{\resizebox{2.05ex}{!}{\ifnum\@thesistype=4 \rlap{\hspace{0.5pt}\raisebox{0.4ex}{\scalebox{0.7}{$\bm{\checkmark$}}}}$\square$\else $\square$\fi}}}
-
-\newcommand{\checke}{\raisebox{-0.2ex}{\resizebox{2.05ex}{!}{\ifnum\@thesistype=5 \rlap{\hspace{0.5pt}\raisebox{0.4ex}{\scalebox{0.7}{$\bm{\checkmark$}}}}$\square$\else $\square$\fi}}}
-  
-		\vspace*{-2cm}
-		\begin{center}
-			% 页面上部信息//upper area
-			{\fontsize{14pt}{18pt}\selectfont
-			\songti
-			\begin{tabularx}{\textwidth}{l@{}c>{\hfill}Xr@{}c}
-				\makebox[3em][s]{分类号}： & \underline{\makebox[8em]{\@classification}} & & 
-				\makebox[4em][s]{学校代码}： & \underline{\makebox[8em]{\@schoolcode}} \\[6pt]
-				\makebox[3em][s]{U\hspace{\fill}D\hspace{\fill}C}： & \underline{\makebox[8em]{\@UDC}} & & 
-				\makebox[4em][s]{密级}： & \underline{\makebox[8em]{\@secretlevel}} \\
-			\end{tabularx}
-			}
-
-			\vspace{2.5cm}
-			
-			% 学校名称//school name
-			\includegraphics[width=0.6\textwidth]{figs/headlogo.jpg}
-			
-			\vspace{0.5cm}
-			
-			% 论文类型//thesis type
-			\makebox[0.6\textwidth][s]{\shuoshi \textbf{专业型硕士学位论文}\par}
-			
-			\vspace{2cm}
-			
-			% 论文题目与副标题（如果有）// thesis title and subtitle
-			\begin{minipage}{\textwidth}
-				\centering\timu\@title\par
-			\end{minipage}
-			\vspace{0.5cm}
-			
-			\ifthenelse{\equal{\@subtitle}{}}{}{
-				\makebox[0.7\textwidth]{\timu\@subtitle}
-			}
-
-            % ==========================================================
-            %               【新增】论文类型勾选框部分
-            % ==========================================================
-            \vspace{0.1cm} % 调整与上方标题的间距
-            {
-            \fontsize{14pt}{18pt}\selectfont\fangsong
-            \begin{tabular}{c}
-                \checka 案例分析报告\quad \checkb 专题研究类论文 \\
-                \addlinespace[3pt]
-                \checkc 调研报告\quad \checkd 方案设计\quad \checke 产品设计
-            \end{tabular}
-            }
-            % ==========================================================        
-
-			\vspace{0.5cm}
-			
-			 % 作者信息//author information
-			 {
-			\fontsize{15pt}{18pt}\selectfont
-			\kaishu\bfseries
-			\begin{tabularx}{0.6\textwidth}{l@{}X}
-				\makebox[4em][s]{作者姓名}： & \underline{\makebox[\linewidth]{\@author}} \\[12pt]
-				\makebox[4em][s]{学\hspace{\fill}号}： & \underline{\makebox[\linewidth]{\@studentid}} \\[12pt]
-				\makebox[4em][s]{指导教师}： & \underline{\makebox[\linewidth]{\@advisor}} \\[12pt]
-				\makebox[4em][s]{学科门类}： & \underline{\makebox[\linewidth]{\@department}} \\[12pt]
-				\makebox[4em][s]{专\hspace{\fill}业}： & \underline{\makebox[\linewidth]{\@major}} \\[12pt]
-				\makebox[4em][s]{研究方向}： & \underline{\makebox[\linewidth]{\@direction}} \\[12pt]
-				\makebox[4em][s]{完成日期}： & \underline{\makebox[\linewidth]{\@completedate}} \\
-			\end{tabularx}
-			}
-			\end{center}
-		\end{titlepage}
-	}
-
-% 英文封面页设置//English title page
-\newcommand{\maketitletwo}{
-	\begin{titlepage}
-		\clearpage
-		\begin{center}
-			\vspace{2\baselineskip}
-			\vspace{5pt}
-			\begin{minipage}{0.5\textwidth}
-				\fontsize{18pt}{27pt}\selectfont
-				\itshape
-				Wuhan \hspace{\fill} Textile \hspace{\fill} University
-			\end{minipage}
-			
-			{\fontsize{18pt}{27pt}\selectfont 
-			\@engdegree \par
-			}
-			
-			\vspace{4cm}
-			
-			% 英文题目//English title
-			\begin{spacing}{1.25}
-				\fontsize{18pt}{22.5pt}\selectfont\bfseries
-				\@engtitle
-			\end{spacing}
-			
-			% 副标题（如果有）//subtitle
-			\ifthenelse{\equal{\@engsubtitle}{}}{}{
-				\vspace{0.3cm}
-				\begin{spacing}{1.25}
-					\fontsize{18pt}{22.5pt}\selectfont\bfseries\@engsubtitle\par
-				\end{spacing}
-			}
-			
-			\vspace{8cm}
-			
-			% 作者信息//author information
-			{
-			\fontsize{15pt}{18pt}
-			\selectfont\bfseries
-			\begin{tabularx}{0.7\textwidth}{lX}
-				Candidate: & \makebox[\linewidth]{\@engauthor} \\[6pt]
-				Supervisor: & \makebox[\linewidth]{\@engadvisor} \\[6pt]
-				Time: & \makebox[\linewidth]{\@engdate} \\
-			\end{tabularx}
-			}
-		\end{center}
-	\end{titlepage}
-}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                      摘要页设置
