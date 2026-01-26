@@ -1,14 +1,18 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                   声明和基本信息
-%            Statement and basic information
+%                        声明和基本信息
+%             Statement and basic information
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-% 2025-11-24 v2.0
-% 作者 1：杜鑫// 机构：武汉纺织大学经济学院// 联系方式：hhkaaen@hotmail.com (欢迎联系！)
-% Author 1: Xin Du// Institution: School of Economics, Wuhan Textile University// Email: hhkaaen@hotmail.com (open to suggestions!)
-% 作者 2：严海军// 机构：武汉纺织大学计算机与人工智能学院// 联系方式：yanhaijun66@gmail.com (欢迎联系！)
-% Author 2: Yan Haijun // Institution: School of Computer and Artificial Intelligence, Wuhan Textile University // Email: yanhaijun666@gmail.com (Welcome to contact!)
+% 2025-3-20 v1.0
+% 作者：杜鑫// 机构：武汉纺织大学经济学院// 联系方式：hhkaaen@hotmail.com (欢迎联系！)
+% Author: Xin Du// Institution: School of Economics, Wuhan Textile University// Email: hhkaaen@hotmail.com (open to suggestions!)
+% GitHub: https://github.com/dux1n4real
 
+% 2025-11-24 v2.0
+% 作者 2：严海军// 机构：武汉纺织大学计算机与人工智能学院// 联系方式：yanhaijun66@gmail.com (欢迎联系！)
+% Author 2: Yan Haijun // Institution: School of Computer Science and Artificial Intelligence, Wuhan Textile University // Email: yanhaijun666@gmail.com (Welcome to contact!)
+% GitHub: https://github.com/Hai-Jun-Yan/WTU_CSAI_Graduation_Thesis_Template
+% 个人博客: https://www.blog-haijun.site/
 
 % 基于原作者的架构，本次进行了优化与功能扩展，主要更新内容如下：
 % 目录样式优化：重构了目录生成逻辑，修正缩进与引导线样式，使其精确匹配学位论文排版规范。
@@ -30,8 +34,12 @@
 % ✅ 允许：免费使用、修改、分发、私有化部署。
 % ❌ 禁止：将本项目的代码或衍生作品用于商业出售（如淘宝代写、付费模板等）。
 
+% 希望各位毕业的学弟学妹们在使用本模板的过程中能够遇到最少的问题，也欢迎各位在使用过程中遇到的问题与我联系。祝大家顺利毕业！
+% 个人博客: https://www.blog-haijun.site/
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                   基本设置
+%                         基本设置
+%                     Basic Settings
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[]{WTUthesis}
 \usepackage{afterpage,newtxmath,newtxtext,hyperref,titlesec,tabularx,threeparttable,booktabs,graphicx,caption,cleveref,listings}
@@ -42,9 +50,10 @@
 \usepackage{mathtools}
 \usepackage{setspace}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 定义图\表标题字体及样式
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                  定义图\表标题字体及样式
+%       Define Figure/Table Caption Font and Style
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 1. 定义一个新的字体样式 "wuhaosong"：五号字(\zihao{5})，宋体(\songti)
 \DeclareCaptionFont{wuhaosong}{\zihao{5}\songti}
 % 2. 应用设置
@@ -54,37 +63,41 @@
 \captionsetup[figure]{labelsep=space, skip=12pt, font=wuhaosong, labelfont=normalfont}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 果需要取消链接的带有颜色的方框，请添加以下代码:
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        如果需要取消链接的带有颜色的方框，请添加以下代码:
+%        To remove colored boxes from links, use:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hypersetup{colorlinks=false,hidelinks}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 定义表格中线的粗细
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                    定义表格中线的粗细
+%               Define Table Line Thickness
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand{\toprule}{\noalign{\vskip2pt}\specialrule{1.5pt}{0pt}{0pt}\noalign{\vskip2pt}}
 \renewcommand{\midrule}{\noalign{\vskip2pt}\specialrule{0.25pt}{0pt}{0pt}\noalign{\vskip2pt}}
 \renewcommand{\bottomrule}{\noalign{\vskip2pt}\specialrule{1.5pt}{0pt}{0pt}\noalign{\vskip2pt}}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 定义公式编号格式：式(3.1)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                定义公式编号格式：式(3.1)
+%           Define Equation Numbering Format: (3.1)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \songti 确保"式"字使用的是宋体，与正文一致
 \newtagform{cn-eqn}{\songti\zihao{-4} 式(}{)}
 \usetagform{cn-eqn}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 自动参考文献管理设置
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                    自动参考文献管理设置
+%         Automatic Reference Management Settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 1. 加载 natbib 宏包
 % square: 方括号 []
 % comma: 标点用半角逗号 (满足"英文标点+半角"要求)
 % sort&compress: 自动排序压缩
 % super: 上标引用
-\usepackage[square,comma,sort&compress,super]{natbib}
+\usepackage[square,comma,sort&compress,numbers]{natbib}
 % 2. 设置参考文献列表的具体字体和行距
 % \zihao{-4}: 小四号
 % \songti: 宋体 (在 ctex 环境下，英文会自动匹配为 Times New Roman，只要样式文件加载了 newtxtext)
@@ -94,9 +107,10 @@
 \setlength{\bibsep}{0pt}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 定义文献引用样式
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                      定义文献引用样式
+%                  Define Citation Style
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 2. 保存原始的引用命令为 \citen
 % 如果正文中需要正常大小的引用（如"文献[1]"），请使用 \citen{...}
 \let\citen\cite
@@ -110,8 +124,8 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                     这是分割线
-%                this is a seperate line
+%                          这是分割线
+%                  this is a seperate line
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \raggedbottom
 
@@ -166,7 +180,7 @@ This thesis studies the problem of XXXX. To address the challenge of XXXX, a XXX
 \tableofcontents
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                     正文内容
+%                        正文内容
 %                   main body content
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -176,7 +190,8 @@ This thesis studies the problem of XXXX. To address the challenge of XXXX, a XXX
 
 
 % ========================================================
-% 第一章：一级标题示例
+%                    第一章：一级标题示例
+%           Chapter 1: First-Level Heading Example
 % ========================================================
 \chapter{一级标题示例}
 \textbf{一级标题（章标题）要求}：通常为\textbf{三号黑体}，居中显示，段前段后有特定间距（模板已自动设置）。
@@ -211,7 +226,8 @@ This thesis studies the problem of XXXX. To address the challenge of XXXX, a XXX
 
 
 % ========================================================
-% 第二章：图表与公式排版
+%                  第二章（图表与公式排版）
+%      Chapter 2: Figures, Tables, and Equations Layout
 % ========================================================
 \chapter{第二章（图表与公式排版）}
 
@@ -321,7 +337,8 @@ This thesis studies the problem of XXXX. To address the challenge of XXXX, a XXX
 这里展示表格引用：如表 \ref{tab:example-data} 所示。
 
 % ========================================================
-% 第三章：公式示例
+%                    第三章（公式示例）
+%               Chapter 3: Equation Examples
 % ========================================================
 \chapter{第三章（公式示例）}
 
@@ -352,7 +369,8 @@ This thesis studies the problem of XXXX. To address the challenge of XXXX, a XXX
 
 
 % ========================================================
-% 第四章：参考文献引用示例
+%                第四章（参考文献引用示例）
+%          Chapter 4: Reference Citation Examples
 % ========================================================
 \chapter{第四章（参考文献引用示例）}
 
@@ -369,10 +387,15 @@ This thesis studies the problem of XXXX. To address the challenge of XXXX, a XXX
 本模板已配置好 \texttt{natbib} 宏包以及单独的\texttt{gbt7714-numerical.bst}文件作为参考文献样式，支持自动排序和压缩。具体引用指令如下：
 
 \subsection{单篇文献引用示例}
-在正文叙述完一个观点后，使用 \texttt{\textbackslash cite\{key\}} 命令。引用标记会自动变为右上角上标。
+(1) \textbf{上标引用}：在正文叙述完一个观点后，使用 \texttt{\textbackslash cite\{key\}} 命令。引用标记会自动变为右上角上标。
 
 \textbf{示例：}
 引用了一个单独的文献\cite{niu1}
+
+(2) \textbf{行内引用}：如果需要将引用作为句子的一部分，使用 \texttt{\textbackslash citen\{key\}} 命令。
+
+\textbf{示例：}
+文献\citen{niu1}详细讨论了这个问题。
 
 \subsection{多篇文献合并引用示例}
 当需要同时引用多篇文献时，只需在 \texttt{\textbackslash cite} 命令中用逗号分隔 key 即可，例如\texttt{\textbackslash cite\{key1, key2, key3\}}。模板会自动将连续的编号合并为范围（如 [1-3]）。
@@ -381,7 +404,7 @@ This thesis studies the problem of XXXX. To address the challenge of XXXX, a XXX
 引用了多篇编号连续的文献\cite{niu1,niu2,niu3}，引用了多篇编号不连续的文献\cite{niu1,ASPP,TPAMI2}
 
 \subsection{文献编排样式展示}
-文献\cite{niu1}为硕士学位论文
+文献\cite{niu1}为硕士学位论文\citenum{ASPP}
 
 文献\cite{niu2,niu3}为中文期刊论文
 
@@ -392,7 +415,8 @@ This thesis studies the problem of XXXX. To address the challenge of XXXX, a XXX
 文献\cite{ASPP,VggNet,Vit}为arxiv预印本论文
 
 % ========================================================
-% 第五章：总结与展望
+%                   第五章：总结与展望
+%            Chapter 5: Conclusion and Outlook
 % ========================================================
 \chapter{总结与展望}
 \section{主要工作总结}
@@ -421,7 +445,8 @@ $\cdots$
 
 $\cdots$
 % ========================================================
-% 参考文献
+%                        参考文献
+%                       References
 % ========================================================
 \clearpage
 \addcontentsline{toc}{chapter}{参考文献} 
@@ -432,7 +457,8 @@ $\cdots$
 
 
 % ========================================================
-% 附录
+%                          附录
+%                        Appendix
 % ========================================================
 \clearpage
 \chapter*{附录}
